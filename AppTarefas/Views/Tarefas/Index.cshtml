@@ -1,5 +1,32 @@
-﻿@{
+﻿@model List<AppTarefas.Models.Tarefa>
+@{
     ViewData["Title"] = "Lista de Tarefas";
 }
 
-<h1>Lista de Tarefas</h1>
+<h1 class="display-4 fw-bold">Lista de Tarefas</h1>
+
+<a class="btn btn-primary btn-lg" asp-controller="Tarefas" asp-action="Create">Nova Tarefa</a>
+
+<table class="table table-bordered table-striped mt-3">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Título</th>
+            <th>Concluída</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var tarefa in Model)
+        {
+            <tr>
+                <td>@tarefa.TarefaId</td>
+                <td>@tarefa.Titulo</td>
+                <td>@tarefa.Concluida</td>
+                <td></td>
+            </tr>
+        }
+
+    </tbody>
+</table>
